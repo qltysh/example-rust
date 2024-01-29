@@ -1,0 +1,44 @@
+name: Main
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest-16-cores
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: cargo build
+        run: cargo build --workspace --verbose
+
+      - name: cargo test
+        run: cargo llvm-cov --all-features --workspace --lcov --output-path target/lcov.info
+
+      - name: Download and install qlty CLI
+        run: curl -fsSL https://tinyurl.com/qlty-beta-install | bash
+
+      - name: qlty init
+        run: ~/.qlty/bin/qlty init --no
+
+      - name: Upload coverage to qlty
+        run: PROJECT_ID=e02159bf-9c4b-411f-afe2-d824ee3ff475 ~/.qlty/bin/qlty coverage ./target/lcov.info --verbose --upload --tag rust-example-coverage 
