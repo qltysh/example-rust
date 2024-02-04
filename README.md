@@ -1,8 +1,8 @@
 # Qlty Rust Coverage Example
 
-Qlty is a Code Health Platform with support for code coverage.
+[Qlty](https://example.com) is a Code Health Platform with support for code coverage.
 
-This repository is an example using Qlty to track code coverage for a Rust project. Coverage data is generated during the Rust build, and then uploaded to Qlty.
+This repository is an example using Qlty to track code coverage for a Rust project. Coverage data is generated during the [Rust](https://www.rust-lang.org/) build, and then uploaded to Qlty.
 
 This repository uses [cargo-llvm-lcov](https://github.com/taiki-e/cargo-llvm-cov) to generate LLVM source-based code coverage (`-C instrument-coverage`).
 
