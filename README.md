@@ -12,7 +12,7 @@ This repository uses [cargo-llvm-lcov](https://github.com/taiki-e/cargo-llvm-cov
 - cargo-llvm-lcov v0.6.4 or above
 - Test run with [cargo test](https://doc.rust-lang.org/cargo/commands/cargo-test.html)
 - An account on Qlty (free for open source)
-- `QLTY_COVERAGE_TOKEN` is set as a GitHub Actions repository secret
+- `QLTY_COVERAGE_TOKEN` is set as a GitHub Actions [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
 
 ## Set up
 
