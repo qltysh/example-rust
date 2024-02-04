@@ -16,7 +16,16 @@ This repository uses [cargo-llvm-lcov](https://github.com/taiki-e/cargo-llvm-cov
 
 ## Set up
 
-See [`.github/workflows/main.yml`](./.github/workflows/main.yml) in this repository.
+See [`.github/workflows/main.yml`](./.github/workflows/main.yml) in this repository for a basic configuration.
+
+## Documentation
+
+- [Advanced code coverage configuration](https://example.com)
+- [Alternative supported CI providers](https://example.com)
+
+## Help and feedback
+
+Join the our Slack Community for help and to provide feedback that we'll use to improve Qlty.
 
 ## License
 
