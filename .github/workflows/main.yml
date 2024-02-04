@@ -34,11 +34,8 @@ jobs:
       - name: cargo test
         run: cargo llvm-cov --all-features --workspace --lcov --output-path target/lcov.info
 
-      - name: Download and install qlty CLI
-        run: curl -fsSL https://tinyurl.com/qlty-beta-install | bash
-
-      - name: qlty init
-        run: ~/.qlty/bin/qlty init --no
-
-      - name: Upload coverage to qlty
-        run: PROJECT_ID=e02159bf-9c4b-411f-afe2-d824ee3ff475 ~/.qlty/bin/qlty coverage ./target/lcov.info --verbose --upload --tag rust-example-coverage 
+      - name: Test Local Action
+        uses: qltyai/qlty-action/coverage@main
+        with:
+          coverage-token: e02159bf-9c4b-411f-afe2-d824ee3ff475
+          file: target/lcov.info
