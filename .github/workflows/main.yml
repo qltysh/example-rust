@@ -35,7 +35,7 @@ jobs:
       - name: cargo test
         run: cargo llvm-cov --all-features --workspace --lcov --output-path target/lcov.info
 
-      - uses: qltyai/qlty-action/coverage@main
+      - uses: qltysh/qlty-action/coverage@main
         with:
           coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-          file: target/lcov.info
+          files: target/lcov.info
